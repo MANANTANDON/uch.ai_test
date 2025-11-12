@@ -1,12 +1,13 @@
 import { Avatar, Tooltip } from "@mui/material";
 import React, { useState } from "react";
+import { CardsView } from "./CardsView";
 
 export const TenderTaskPage: React.FC = () => {
   const [searchText, setSearchText] = useState<string>("");
   const [buttonSelect, setButtonSelect] = useState("board");
   return (
     <>
-      <div className="bg-[#1F2024] p-4 rounded-2xl ml-2 mr-4 mt-4 h-[calc(100vh-30px)]">
+      <div className="bg-[#1F2024] p-4 rounded-2xl ml-2 mr-4 mt-4 h-[calc(100vh-30px)] overflow-scroll">
         <div className="flex items-center justify-between border-b border-[#6D6E72] pb-4">
           <div className="text-zinc-50 sfpro text-2xl font-bold">
             Tender Tasks
@@ -72,6 +73,12 @@ export const TenderTaskPage: React.FC = () => {
               􀍟 Columns
             </button>
           </div>
+        </div>
+        <div className="flex items-center gap-[35px] overflow-auto">
+          <CardsView />
+          <CardsView />
+          <CardsView />
+          <CardsView />
         </div>
       </div>
     </>

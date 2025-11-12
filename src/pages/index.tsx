@@ -1,10 +1,11 @@
 import { Layout } from "@/components/Layout/Layout";
+import { TenderTaskPage } from "@/components/TenderTaskPage";
 
 export default function Home() {
   return (
     <div>
       <Layout>
-        <div className="text-zinc-50">Manan Tandon</div>
+        <TenderTaskPage />
       </Layout>
     </div>
   );
