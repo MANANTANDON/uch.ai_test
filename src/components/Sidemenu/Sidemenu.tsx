@@ -32,11 +32,19 @@ export const Sidemenu: React.FC<SidemenuProps> = ({ onToggle, isExpanded }) => {
       <div className="flex flex-col gap-2 mt-2">
         {MENUS.map((item, key) => (
           <div
-            className="flex items-center gap-3 px-4 py-2 hover:bg-zinc-500 cursor-pointer rounded-lg"
+            className="flex items-center gap-3 px-4 py-2 hover:bg-amber-500/40 cursor-pointer rounded-lg"
             style={{ justifyContent: !isExpanded ? "center" : "" }}
             key={key}
           >
-            <div className="text-zinc-50">{item.icon}</div>
+            <div
+              className={
+                item.name === "Tender Task"
+                  ? "text-amber-400/90"
+                  : "text-zinc-50"
+              }
+            >
+              {item.icon}
+            </div>
             {isExpanded && (
               <div className="text-zinc-50 whitespace-nowrap">{item.name}</div>
             )}
