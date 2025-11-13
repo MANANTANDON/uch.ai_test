@@ -7,17 +7,17 @@ export const TenderTaskPage: React.FC = () => {
   const [buttonSelect, setButtonSelect] = useState("board");
   return (
     <>
-      <div className="bg-[#1F2024] p-4 rounded-2xl ml-2 mr-4 mt-4 h-[calc(100vh-30px)] overflow-scroll">
-        <div className="flex items-center justify-between border-b border-[#6D6E72] pb-4">
+      <div className="bg-[#1F2024] p-4 rounded-2xl ml-4  lg:ml-6 xl:ml-2  mr-4 mt-0 md:mt-4 h-[calc(100vh-30px)] overflow-hidden">
+        <div className="flex flex-col md:flex-row  items-start md:items-center justify-between border-b border-[#6D6E72] pb-4">
           <div className="text-zinc-50 sfpro text-2xl font-bold">
             Tender Tasks
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-5 mt-4 md:mt-0">
             {/* Search Box */}
             <div className="bg-zinc-200 flex items-center gap-1.5 pl-2 pr-0.5 py-0.5 rounded-md">
               <input
                 value={searchText}
-                className="w-[350px] max-w-[350px] outline-0 font-medium"
+                className="w-full md:w-[350px] md:max-w-[350px] outline-0 font-medium"
                 placeholder="Search for Tenders"
                 onChange={(e) => setSearchText(e.target.value)}
               />
@@ -42,7 +42,7 @@ export const TenderTaskPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-0 mt-4">
+        <div className="flex flex-col md:flex-row items-center gap-4 mt-4">
           <div className="bg-[#000000] w-full rounded-[100px] flex items-center gap-1">
             <button
               className={`text-zinc-50 px-7 py-2.5 border border-[#000000] ${
@@ -74,11 +74,11 @@ export const TenderTaskPage: React.FC = () => {
             </button>
           </div>
         </div>
-        <div className="flex items-center gap-[35px] overflow-auto">
-          <CardsView />
-          <CardsView />
-          <CardsView />
-          <CardsView />
+        <div className="flex gap-[35px] overflow-auto mt-4 h-[calc(100vh-300px)] sm:h-[calc(100vh-190px)] custom-scrollbar">
+          <CardsView title="To-Do List" />
+          <CardsView title="In Progress" />
+          <CardsView title="Not Started" />
+          <CardsView title="Completed" />
         </div>
       </div>
     </>

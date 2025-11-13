@@ -1,3 +1,10 @@
+export const MENUS = [
+  { name: "Search", icon: "􀊫", path: "" },
+  { name: "Tender Task", icon: "􀥜", path: "" },
+  { name: "Analytics", icon: "􀑁", path: "" },
+  { name: "Contact us", icon: "􀌾", path: "" },
+];
+
 export const TODOLIST = [
   {
     status: "In Progress",

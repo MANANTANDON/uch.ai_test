@@ -1,4 +1,4 @@
-import { Avatar } from "@mui/material";
+import { Tooltip } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
@@ -16,9 +16,22 @@ interface StatusCardInterface {
 }
 
 export const StatusCard: React.FC<StatusCardInterface> = ({ data }) => {
+  const getHoverShadow = () => {
+    if (data.status === "In Progress") {
+      return "hover:shadow-[0_0_15px_rgba(10,181,250,0.5)]";
+    } else if (data.status === "Not Started") {
+      return "hover:shadow-[0_0_15px_rgba(220,115,34,0.5)]";
+    } else if (data.status === "Completed") {
+      return "hover:shadow-[0_0_15px_rgba(0,169,47,0.5)]";
+    }
+    return "";
+  };
+
   return (
     <>
-      <div className="bg-[#1F2024] rounded-xl w-[348px] max-w-[348px]">
+      <div
+        className={`bg-[#1F2024] rounded-xl w-[348px] max-w-[348px] ${getHoverShadow()} hover:scale-[1.02] transition-all duration-200 cursor-pointer`}
+      >
         {/* Task Status */}
         <div className="px-3 pt-3 flex items-center justify-between">
           <div
@@ -45,9 +58,11 @@ export const StatusCard: React.FC<StatusCardInterface> = ({ data }) => {
             />
             <div className="text-zinc-100 text-xs">{data.status}</div>
           </div>
-          <div className="text-zinc-50 hover:cursor-pointer font-semibold">
-            􀍠
-          </div>
+          <Tooltip title="More options" arrow>
+            <div className="text-zinc-50 hover:cursor-pointer font-semibold">
+              􀍠
+            </div>
+          </Tooltip>
         </div>
         {/* Task Title */}
         <div className="text-zinc-50 px-3 text-lg py-2 font-semibold">
