@@ -46,7 +46,15 @@ export const Sidemenu: React.FC<SidemenuProps> = ({ onToggle, isExpanded }) => {
               {item.icon}
             </div>
             {isExpanded && (
-              <div className="text-zinc-50 whitespace-nowrap">{item.name}</div>
+              <div
+                className={`whitespace-nowrap ${
+                  item.name === "Tender Task"
+                    ? "text-amber-400/90"
+                    : "text-zinc-50"
+                }`}
+              >
+                {item.name}
+              </div>
             )}
           </div>
         ))}

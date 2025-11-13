@@ -23,7 +23,7 @@ export const MobileSideMenu: React.FC = () => {
         }}
       >
         <div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between pb-2 border-b border-zinc-200/20 ">
             <div className="font-semibold text-xl">Tender Drawer</div>
             <div onClick={() => setOpen(false)}>􀆄</div>
           </div>
@@ -42,7 +42,13 @@ export const MobileSideMenu: React.FC = () => {
                 >
                   {item.icon}
                 </div>
-                <div className="text-zinc-50 whitespace-nowrap">
+                <div
+                  className={`whitespace-nowrap ${
+                    item.name === "Tender Task"
+                      ? "text-amber-400/90"
+                      : "text-zinc-50"
+                  }`}
+                >
                   {item.name}
                 </div>
               </div>
